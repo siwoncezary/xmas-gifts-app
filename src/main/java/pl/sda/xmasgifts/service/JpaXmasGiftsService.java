@@ -9,6 +9,7 @@ import pl.sda.xmasgifts.repository.WishRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class JpaXmasGiftsService implements XmasGiftsService{
@@ -22,6 +23,7 @@ public class JpaXmasGiftsService implements XmasGiftsService{
 
     @Override
     public Person addPerson(Person person) {
+        person.setId(UUID.randomUUID());
         return personRepository.save(person);
     }
 
