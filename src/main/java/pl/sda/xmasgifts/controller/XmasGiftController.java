@@ -18,9 +18,7 @@ import java.util.UUID;
 
 @Controller
 public class XmasGiftController {
-
     public static final String XMAS_USER_ID = "xmas-user-id";
-    //wstrzyknij JpaXmasGiftsService
     private final XmasGiftsService xmasGiftsService;
 
     public XmasGiftController(XmasGiftsService xmasGiftsService) {
@@ -29,7 +27,6 @@ public class XmasGiftController {
 
     @GetMapping("/")
     public String home() {
-        //
         return "index";
     }
 
