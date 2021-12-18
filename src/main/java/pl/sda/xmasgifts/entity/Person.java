@@ -15,15 +15,16 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Person {
     @Id
+    @GeneratedValue
     private UUID id;
 
     private String username;
 
     private String email;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private Set<Wish> wishes = new HashSet<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "giffter")
     private Set<Wish> gifts = new HashSet<>();
 }
