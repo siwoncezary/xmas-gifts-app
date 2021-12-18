@@ -34,8 +34,13 @@ public class XmasGiftController {
     }
 
     @GetMapping("/user/add")
-    public String addUserForm() {
-        return "add-user-form";
+    public String addUserForm(@CookieValue(XMAS_USER_ID) String userUUID){
+        if (userUUID == null || !xmasGiftsService.findPersonById(UUID.fromString(userUUID)).isPresent()) {
+            return "add-user-form";
+        } else{
+            return "user-already-added";
+        }
+
     }
 
     @PostMapping("/user/add")
@@ -55,8 +60,12 @@ public class XmasGiftController {
     }
 
     @GetMapping("/wish/add")
-    public String addWishForm() {
-        return "add-wish-form";
+    public String addWishForm(@CookieValue(XMAS_USER_ID) String userUUID) {
+        if (userUUID != null) {
+            return "add-wish-form";
+        } else {
+            return "add-wish-error";
+        }
     }
 
     @PostMapping("/wish/add")

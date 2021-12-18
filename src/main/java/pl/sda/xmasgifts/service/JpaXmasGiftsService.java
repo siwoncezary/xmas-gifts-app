@@ -22,6 +22,11 @@ public class JpaXmasGiftsService implements XmasGiftsService{
     }
 
     @Override
+    public Optional<Person> findPersonById(UUID personUUID){
+        return personRepository.findById(personUUID);
+    }
+
+    @Override
     public Person addPerson(Person person) {
         return personRepository.save(person);
     }

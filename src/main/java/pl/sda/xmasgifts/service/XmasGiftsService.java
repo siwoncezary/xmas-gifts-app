@@ -10,6 +10,8 @@ import java.util.UUID;
 
 public interface XmasGiftsService {
 
+    Optional<Person> findPersonById(UUID personUUID);
+
     Person addPerson(Person person);
 
     @Transactional
