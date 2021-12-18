@@ -25,6 +25,6 @@ public class Person {
     @OneToMany(mappedBy = "owner")
     private Set<Wish> wishes = new HashSet<>();
 
-    @OneToMany(mappedBy = "giffter")
+    @OneToMany(mappedBy = "gifter")
     private Set<Wish> gifts = new HashSet<>();
 }
