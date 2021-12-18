@@ -3,6 +3,7 @@ package pl.sda.xmasgifts.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -21,8 +22,8 @@ public class Person {
     private String email;
 
     @OneToMany
-    private Set<Wish> wishes;
+    private Set<Wish> wishes = new HashSet<>();
 
     @OneToMany
-    private Set<Wish> gifts;
+    private Set<Wish> gifts = new HashSet<>();
 }

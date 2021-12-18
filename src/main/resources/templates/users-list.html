@@ -18,8 +18,8 @@
         <tr th:each="person: ${people}">
             <td th:text="${person.username}"></td>
             <td th:text="${person.email}"></td>
-            <td ></td>
-            <td ></td>
+            <td th:text="${person.wishes.size()}"></td>
+            <td th:text="${person.id}"></td>
         </tr>
     </table>
 </body>

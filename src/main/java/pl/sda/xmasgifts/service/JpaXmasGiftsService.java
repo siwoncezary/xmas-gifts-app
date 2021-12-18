@@ -29,7 +29,7 @@ public class JpaXmasGiftsService implements XmasGiftsService{
 
     @Override
     @Transactional
-    public Optional<Wish> addPersonWish(Wish wish, long personId) {
+    public Optional<Wish> addPersonWish(Wish wish, UUID personId) {
         final Optional<Person> optionalPerson = personRepository.findById(personId);
         if (optionalPerson.isEmpty()){
             return Optional.empty();
