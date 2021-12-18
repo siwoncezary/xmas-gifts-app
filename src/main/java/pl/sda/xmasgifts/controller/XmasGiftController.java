@@ -31,7 +31,7 @@ public class XmasGiftController {
     }
 
     @GetMapping("/user/add")
-    public String addUserForm(@CookieValue(XMAS_USER_ID) String userUUID){
+    public String addUserForm(@CookieValue(value = XMAS_USER_ID, required = false) String userUUID){
         if (userUUID == null || !xmasGiftsService.findPersonById(UUID.fromString(userUUID)).isPresent()) {
             return "add-user-form";
         } else{
@@ -66,7 +66,7 @@ public class XmasGiftController {
     }
 
     @PostMapping("/wish/add")
-    public String addWish(@ModelAttribute Wish wish, @CookieValue(XMAS_USER_ID) String userUUID) {
+    public String addWish(@ModelAttribute Wish wish, @CookieValue(value = XMAS_USER_ID, required = false) String userUUID) {
         final Optional<Wish> optionalWish = xmasGiftsService.addPersonWish(wish, UUID.fromString(userUUID));
         if (optionalWish.isPresent()) {
             return "redirect:/user/list";
